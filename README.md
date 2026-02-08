@@ -3,7 +3,6 @@ Router API CLI
 Projeto para controle de roteadores Huawei AX2S via API interna utilizando autenticação SCRAM.
 Estruturado para execução via CLI e preparado para containerização com Docker.
 
-============================================================
 Objetivo
 ============================================================
 
@@ -13,7 +12,7 @@ Fornecer uma interface organizada para:
 - Execução de comandos via linha de comando
 - Organização modular para manutenção e expansão
 
-============================================================
+
 Estrutura de Pastas
 ============================================================
 
@@ -26,7 +25,6 @@ firewall.py -> Endpoint relacionados ao firewall
 cli/
 main.py -> Interface CLI usando Typer
 
-============================================================
 Requisitos
 ============================================================
 
@@ -42,17 +40,15 @@ Instalar dependências:
 
 pip install -r requirements.txt
 
-============================================================
 Variáveis de Ambiente
 ============================================================
 
 Criar um arquivo .env na raiz do projeto, pode ser o .env.example:
 
-ROUTER_IP=192.168.1.1
-ROUTER_USER=admin
-ROUTER_PASSWORD="SenhaDoRoteador"
+`ROUTER_IP=192.168.1.1`
+`ROUTER_USER=admin`
+`ROUTER_PASSWORD=SenhaDoRoteador`
 
-============================================================
 Executando o Projeto
 ============================================================
 
@@ -70,8 +66,6 @@ Ver status do firewall:
 
 `python -m app.cli.main firewall-status`
 
-
-============================================================
 Arquitetura
 ============================================================
 
@@ -86,24 +80,21 @@ main.py
 Camada de interface CLI.
 Define parâmetros e interage com os serviços.
 
-============================================================
-Segurança
+## Segurança
 ============================================================
 
 - Autenticação via SCRAM-SHA256.
 - Sessão mantida via cookie SessionID_R3.
 - CSRF atualizado a cada requisição autenticada.
 
-============================================================
-Próximos Passos
+## Próximos Passos
 ============================================================
 
 - Implementar novos módulos (wan, wlan, system, nat).
 - Adicionar logging estruturado.
 - Implementar testes automatizados.
 
-============================================================
-Observação
+## Observação
 ============================================================
 
 Este projeto utiliza endpoints internos do firmware do roteador.
