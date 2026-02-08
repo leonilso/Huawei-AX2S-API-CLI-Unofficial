@@ -16,14 +16,21 @@ Fornecer uma interface organizada para:
 Estrutura de Pastas
 ============================================================
 
-app/
-core/
-client.py -> Cliente HTTP com sessão e login SCRAM
-config.py -> Configurações via variáveis de ambiente
-services/ -> Onde ficam as rotas/endpoints do roteador
-firewall.py -> Endpoint relacionados ao firewall
-cli/
-main.py -> Interface CLI usando Typer
+`app/`
+
+`core/`
+
+`client.py` -> Cliente HTTP com sessão e login SCRAM
+
+`config.py` -> Configurações via variáveis de ambiente
+
+`services/` -> Onde ficam as rotas/endpoints do roteador
+
+`firewall.py` -> Endpoint relacionados ao firewall
+
+`cli/`
+
+`main.py` -> Interface CLI usando Typer
 
 Requisitos
 ============================================================
@@ -38,7 +45,7 @@ Bibliotecas necessárias (estão presentes no requirements.txt):
 
 Instalar dependências:
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 Variáveis de Ambiente
 ============================================================
@@ -69,33 +76,39 @@ Ver status do firewall:
 Arquitetura
 ============================================================
 
-core/
+`core/`
+
 Responsável por autenticação, sessão HTTP e gerenciamento de CSRF.
 
-services/
+`services/`
+
 Contém lógica isolada por domínio (firewall, rede, sistema, etc).
+
 Não depende de CLI.
 
-main.py
+
+`main.py`
+
 Camada de interface CLI.
+
 Define parâmetros e interage com os serviços.
 
-## Segurança
-============================================================
+Segurança
+===========================================================
 
 - Autenticação via SCRAM-SHA256.
 - Sessão mantida via cookie SessionID_R3.
 - CSRF atualizado a cada requisição autenticada.
 
-## Próximos Passos
-============================================================
+Próximos Passos
+===========================================================
 
 - Implementar novos módulos (wan, wlan, system, nat).
 - Adicionar logging estruturado.
 - Implementar testes automatizados.
 
-## Observação
-============================================================
+Observação
+===========================================================
 
 Este projeto utiliza endpoints internos do firmware do roteador.
 Alterações incorretas podem afetar a conectividade da rede.
